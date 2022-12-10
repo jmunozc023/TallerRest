@@ -1,4 +1,4 @@
-package com.mycompany.tallerrest.resources;
+package com.mycompany.TallerRest.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -8,8 +8,8 @@ import javax.ws.rs.core.Response;
  *
  * @author 
  */
-@Path("rest")
-public class JakartaEE8Resource {
+@Path("javaee8")
+public class JavaEE8Resource {
     
     @GET
     public Response ping(){
