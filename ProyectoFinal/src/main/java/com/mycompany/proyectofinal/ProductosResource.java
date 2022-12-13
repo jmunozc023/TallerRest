@@ -78,14 +78,7 @@ public class ProductosResource {
         Utils.productoList.add(content);
         return content;
     }
-    @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void deleteJson(Producto content){
-        for (var n : Utils.productoList) {
-            if (n.getArticulo().equals(content)) {
-                Utils.productoList.remove(content);
-            } 
-        }
     
-    }
+    
+    
 }
