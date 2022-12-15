@@ -39,16 +39,12 @@ public class ProductosResource {
 
     /**
      * Retrieves representation of an instance of com.mycompany.proyectofinal.ProductosResource
-     * @param id
-     * @param nombreUsuario
-     * @param articulo
-     * @param costoUnitario
-     * @param cantidad
+     * 
      * @return an instance of java.lang.String
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Producto> getJson(@QueryParam("id") int id, @QueryParam("u")String nombreUsuario, @QueryParam("n")String articulo, @QueryParam("c") int costoUnitario, @QueryParam("ca") int cantidad) {
+    public List<Producto> getJson(@QueryParam("id") int id, @QueryParam("u")String nombreUsuario, @QueryParam("cat")String categoria, @QueryParam("n")String articulo, @QueryParam("c") int costoUnitario, @QueryParam("ca") int cantidad) {
         var productoList= new ArrayList<Producto>();
         
         if (nombreUsuario.isEmpty()) {
@@ -57,6 +53,7 @@ public class ProductosResource {
             for (var p: Utils.productoList){
                 if (p.getNombreUsuario().equalsIgnoreCase(nombreUsuario)) {
                     productoList.add(p);
+                    
                 }
             }
         }
@@ -66,19 +63,24 @@ public class ProductosResource {
     /**
      * PUT method for updating or creating an instance of ProductosResource
      * @param content representation for the resource
+     * @return 
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    public Producto putJson(Producto content) {
+        content.getId();
+        
+        return content;
     }
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Producto postJson(Producto content){
         content.setId(Utils.productoList.size()+1);
         Utils.productoList.add(content);
+        for (var p : Utils.productoList) {
+            System.out.println(p);
+        }
         return content;
     }
-    
-    
-    
+
 }
