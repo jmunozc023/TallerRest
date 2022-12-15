@@ -8,17 +8,18 @@ package Pojo;
  *
  * @author josep
  */
-public abstract class productoBase {
-    private int id;
+public abstract class productoBase { //Clase abstract para crear el objeto Producto
+    //Declaracion de las variables para el producto
+    private int id; 
     private String nombreUsuario;
     private String categoria;
     private String articulo;
     private int costoUnitario;
     private int cantidad;
 
-    public productoBase() {
+    public productoBase() { //Constructor Vacio
     }
-
+    //Constructor de la clase Producto
     public productoBase(int id, String nombreUsuario, String categoria, String articulo, int costoUnitario, int cantidad) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
@@ -27,7 +28,7 @@ public abstract class productoBase {
         this.costoUnitario = costoUnitario;
         this.cantidad = cantidad;
     }
-
+    //Getters y Setters
     public String getNombreUsuario() {
         return nombreUsuario;
     }

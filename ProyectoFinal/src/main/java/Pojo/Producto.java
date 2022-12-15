@@ -8,14 +8,14 @@ package Pojo;
  *
  * @author josep
  */
-public class Producto extends productoBase{
-
+public class Producto extends productoBase{ //Clase de implementacion del Producto
+    //Constructores vacio y de la clase Abstract
     public Producto() {
     }
     public Producto(int id, String nombreUsuario, String categoria, String articulo, int costoUnitario, int cantidad) {
         super(id, nombreUsuario, categoria, articulo, costoUnitario, cantidad);
     }
-
+    //Overrides de los getter y setter de la clase
     @Override
     public void setCategoria(String categoria) {
         super.setCategoria(categoria); 

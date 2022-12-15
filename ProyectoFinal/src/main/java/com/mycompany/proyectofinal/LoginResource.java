@@ -4,8 +4,8 @@
  */
 package com.mycompany.proyectofinal;
 
-import BaseDatos.Utils;
-import Pojo.Usuario;
+import BaseDatos.Utils; //Import para tener acceso a los recursos de las listas
+import Pojo.Usuario; //Import para tener acceso a los objetos Pojo del Usuario
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -21,8 +21,8 @@ import javax.ws.rs.core.MediaType;
  *
  * @author josep
  */
-@Path("login")
-public class LoginResource {
+@Path("login") //Path login para poder ser accedido por REST
+public class LoginResource { //Clase REST para el Login
 
     @Context
     private UriInfo context;
@@ -41,7 +41,9 @@ public class LoginResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    //Implementacion del verbo Get de Rest, que obtiene un objeto Usuario y lo ordena con los Querys necesarios para crear el JSON
     public Usuario getJson(@QueryParam("u")String nombreUsuario, @QueryParam("p")String password) {
+        //Validacion de los datos de Usuario para retornar al sistema si son correctos
         for (var u : Utils.usuarioList) {
             if (u.getNombreUsuario().equals(nombreUsuario)&& u.getPassword().equals(password)) {
                 return u;
@@ -57,6 +59,7 @@ public class LoginResource {
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    //Implementacion del verbo POST de Rest, que obtiene un objeto Usuario y lo envia convertido en JSON
     public Usuario postJson(Usuario content) {
         content.setId(Utils.usuarioList.size()+1);
         Utils.usuarioList.add(content);

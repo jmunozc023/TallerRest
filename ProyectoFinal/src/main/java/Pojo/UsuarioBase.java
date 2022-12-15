@@ -8,20 +8,21 @@ package Pojo;
  *
  * @author josep
  */
-public abstract class UsuarioBase {
+public abstract class UsuarioBase { //Creacion del abstract para la clase Usuario
+    //Declaraciones de las variables privadas
     private int id;
     private String nombreUsuario;
     private String password;
-
+    //Constructor Vacio
     public UsuarioBase() {
     }
-
+    //Constructor de la clase abstract
     public UsuarioBase(int id, String nombreUsuario, String password) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
-
+    //Getters y Setters de la clase
     public int getId() {
         return id;
     }

@@ -8,15 +8,15 @@ package Pojo;
  *
  * @author josep
  */
-public class Usuario extends UsuarioBase{
-    
+public class Usuario extends UsuarioBase{ //Implementacion de la clase Usuario heredando UsuarioBase
+    //Constructores vacio y de la clase Abstract
     public Usuario() {
     }
 
     public Usuario(int id, String nombreUsuario, String password) {
         super(id, nombreUsuario, password);
     }
-
+    //Override de los getter y setter
     @Override
     public void setPassword(String password) {
         super.setPassword(password); 

@@ -4,8 +4,8 @@
  */
 package com.mycompany.proyectofinal;
 
-import BaseDatos.Utils;
-import Pojo.Producto;
+import BaseDatos.Utils; //Import para tener acceso a los recursos de las listas
+import Pojo.Producto; //Import para tener acceso a los objetos Pojo del Producto
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -25,8 +25,8 @@ import javax.ws.rs.core.MediaType;
  *
  * @author josep
  */
-@Path("productos")
-public class ProductosResource {
+@Path("productos") //Path poductos para poder ser accedido por REST
+public class ProductosResource { //Clase REST para el Producto
 
     @Context
     private UriInfo context;
@@ -44,6 +44,7 @@ public class ProductosResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+     //Implementacion del verbo Get de Rest, que obtiene un objeto Usuario y lo ordena con los Querys necesarios para crear el JSON
     public List<Producto> getJson(@QueryParam("id") int id, @QueryParam("u")String nombreUsuario, @QueryParam("cat")String categoria, @QueryParam("n")String articulo, @QueryParam("c") int costoUnitario, @QueryParam("ca") int cantidad) {
         var productoList= new ArrayList<Producto>();
         
@@ -53,7 +54,6 @@ public class ProductosResource {
             for (var p: Utils.productoList){
                 if (p.getNombreUsuario().equalsIgnoreCase(nombreUsuario)) {
                     productoList.add(p);
-                    
                 }
             }
         }
@@ -65,15 +65,10 @@ public class ProductosResource {
      * @param content representation for the resource
      * @return 
      */
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Producto putJson(Producto content) {
-        content.getId();
-        
-        return content;
-    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    //Implementacion del verbo POST de Rest, que obtiene un objeto Usuario y lo envia convertido en JSON
     public Producto postJson(Producto content){
         content.setId(Utils.productoList.size()+1);
         Utils.productoList.add(content);
